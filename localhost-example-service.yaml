@@ -1,0 +1,21 @@
+# should work like this:
+# / # wget http://helloworld:8080
+# Connecting to helloworld:8080 (192.168.64.1:8080)
+# index.html           100% |*******************************|     2   0:00:00 ETA
+# / # cat index.html
+# hi/ # exit
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: helloworld
+  namespace: default
+spec:
+  # get this with something like: ifconfig  bridge100 |grep inet |awk {'print $2'}
+  externalName: 192.168.64.1
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  sessionAffinity: None
+  type: ExternalName

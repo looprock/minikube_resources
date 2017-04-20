@@ -1,0 +1,6 @@
+bottle
+pykube
+pyopenssl
+pyasn1
+ndg-httpsclient
+sh
